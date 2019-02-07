@@ -3,6 +3,7 @@ package com.zopim.sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.zopim.android.sdk.api.ZopimChat;
 import com.zopim.android.sdk.model.VisitorInfo;
@@ -30,11 +31,15 @@ public class EntryActivity extends AppCompatActivity {
      */
     public void buttonPreSetData(View view) {
         // build and set visitor info
+        String randomNote = Character.toString((char) (random.nextInt(26) + 'a'));
+
+        Toast.makeText(this, "Random note is letter: " + randomNote, Toast.LENGTH_SHORT).show();
+
         VisitorInfo visitorInfo = new VisitorInfo.Builder()
                 .phoneNumber("+1800111222333")
                 .email("visitor@example.com")
                 .name("Sample Visitor")
-                .note(Character.toString((char) (random.nextInt(26) + 'a')))
+                .note(randomNote)
                 .build();
 
         // visitor info can be set at any point when that information becomes available
